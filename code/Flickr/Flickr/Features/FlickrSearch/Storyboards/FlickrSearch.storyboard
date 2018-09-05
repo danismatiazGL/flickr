@@ -26,7 +26,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="3Ze-YL-Axs"/>
                                         </constraints>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
                                         <connections>
                                             <outlet property="delegate" destination="1of-DC-4ly" id="f2l-yE-SMB"/>
                                         </connections>

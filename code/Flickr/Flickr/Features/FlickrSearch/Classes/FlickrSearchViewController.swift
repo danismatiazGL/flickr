@@ -11,9 +11,9 @@ import UIKit
 class FlickrSearchViewController: UIViewController {
     @IBOutlet weak var searchbar: UISearchBar!
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    private var photosList: [Photo] = []
-    private var searchQuery = ""
-    private var page = 0
+    private var photosList: [Photo] = [] // To do: Move this to a ViewModel
+    private var searchQuery = "" // To do: Move this to a ViewModel
+    private var page = 0 // To do: Move this to a ViewModel
     var collectionViewCellSize = 0
     var isLoadingMore = false
 
@@ -40,11 +40,13 @@ extension FlickrSearchViewController: UISearchBarDelegate {
         // request to minimize the API calls OR wait for editing to end
         searchQuery = searchText
         page = 0
+        self.photosList.removeAll()
+        self.photosCollectionView.reloadData()
         self.searchPhotos()
     }
 }
 
-extension FlickrSearchViewController {
+extension FlickrSearchViewController { // To do: Move this to a ViewModel
     private func searchPhotos() {
         isLoadingMore = true
         page += 1
@@ -56,12 +58,16 @@ extension FlickrSearchViewController {
                                             }
                                         } else { self.photosList.removeAll() }
                                         self.photosCollectionView.reloadData()
+                                        self.isLoadingMore = false
         }
     }
 }
 
 extension FlickrSearchViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        hideKeyboardFromSearchBar()
+    }
+    func hideKeyboardFromSearchBar() {
         if searchbar.isFirstResponder {
             searchbar.resignFirstResponder()
         }
@@ -73,6 +79,8 @@ extension FlickrSearchViewController: UICollectionViewDelegate,
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // To do: Make it full screen
+        collectionView.deselectItem(at: indexPath, animated: true)
+        self.hideKeyboardFromSearchBar()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
