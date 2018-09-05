@@ -76,3 +76,15 @@ extension NetworkManager {
         }
     }
 }
+
+// MARK: - Photo Hight Quality Image URL Builder
+extension NetworkManager {
+    static func getHightDefinitionURL(for photo: Photo) -> String {
+        let farm = "https://farm\(photo.farmId)"
+        let base = ".staticflickr.com/"
+        let server = "\(photo.serverId)/"
+        let photoId = "\(photo.photoId)_\(photo.secretId)"
+        let size = "_b.jpg"
+        return "\(farm)\(base)\(server)\(photoId)\(size)"
+    }
+}

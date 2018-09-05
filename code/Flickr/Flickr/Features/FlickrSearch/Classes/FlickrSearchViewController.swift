@@ -34,6 +34,19 @@ class FlickrSearchViewController: UIViewController {
     }
 }
 
+// MARK: - Transitions
+extension FlickrSearchViewController {
+    func showPhotoDetails(selectedPhoto: Photo) {
+        let storyboard = UIStoryboard(name: "PhotoDetails", bundle: nil)
+        if let photoDetailsController =
+            storyboard.instantiateViewController(withIdentifier: "PhotoDetailsViewController")
+                as? PhotoDetailsViewController {
+            photoDetailsController.set(photo: selectedPhoto)
+            self.navigationController?.present(photoDetailsController, animated: true, completion: nil)
+        }
+    }
+}
+
 extension FlickrSearchViewController: UISearchBarDelegate {
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // To Do: Handle a time delay OR minumun characters count to trigger the
@@ -81,6 +94,7 @@ extension FlickrSearchViewController: UICollectionViewDelegate,
         // To do: Make it full screen
         collectionView.deselectItem(at: indexPath, animated: true)
         self.hideKeyboardFromSearchBar()
+        self.showPhotoDetails(selectedPhoto: photosList[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

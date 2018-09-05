@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="df6-YY-YbK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Details View Controller-->
+        <scene sceneID="eEk-jw-7aN">
+            <objects>
+                <viewController storyboardIdentifier="PhotoDetailsViewController" id="df6-YY-YbK" customClass="PhotoDetailsViewController" customModule="Flickr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Hv-2s-9WG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-0J-uDR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flickr-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dNy-Hw-YSC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-p6-0ac">
+                                        <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="htx-kD-s76"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePhotoDetailsACtion:" destination="df6-YY-YbK" eventType="touchUpInside" id="3My-5P-9MV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dNy-Hw-YSC" secondAttribute="bottom" id="JwC-Bz-NUh"/>
+                                    <constraint firstAttribute="trailing" secondItem="dNy-Hw-YSC" secondAttribute="trailing" id="ThH-6m-i7k"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZZ9-p6-0ac" secondAttribute="bottom" id="Vhc-S1-VnS"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZ9-p6-0ac" secondAttribute="trailing" id="Z0f-Ed-QEK"/>
+                                    <constraint firstItem="dNy-Hw-YSC" firstAttribute="leading" secondItem="Eb8-0J-uDR" secondAttribute="leading" id="lW4-KY-qVJ"/>
+                                    <constraint firstItem="dNy-Hw-YSC" firstAttribute="top" secondItem="Eb8-0J-uDR" secondAttribute="top" id="w8w-BS-49d"/>
+                                    <constraint firstItem="ZZ9-p6-0ac" firstAttribute="leading" secondItem="Eb8-0J-uDR" secondAttribute="leading" id="xEL-Cl-4u4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Eb8-0J-uDR" firstAttribute="top" secondItem="2Hv-2s-9WG" secondAttribute="top" id="3CG-NE-CfO"/>
+                            <constraint firstItem="Eb8-0J-uDR" firstAttribute="bottom" secondItem="Bhn-cv-vBP" secondAttribute="bottom" id="L4B-OA-vld"/>
+                            <constraint firstItem="Eb8-0J-uDR" firstAttribute="trailing" secondItem="Bhn-cv-vBP" secondAttribute="trailing" id="ZLv-23-U4g"/>
+                            <constraint firstItem="Eb8-0J-uDR" firstAttribute="leading" secondItem="Bhn-cv-vBP" secondAttribute="leading" id="m2e-if-iBo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bhn-cv-vBP"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="dNy-Hw-YSC" id="1kD-N0-EUi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D39-Cx-Pbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.8" y="194.75262368815595"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Flickr-logo" width="512" height="512"/>
+    </resources>
+</document>
