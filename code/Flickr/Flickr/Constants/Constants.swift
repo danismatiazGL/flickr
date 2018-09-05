@@ -7,3 +7,6 @@
 //
 
 import UIKit
+
+// Flickr Search CollectionView
+let flickerCollectionViewCell: String = "FlickrPhotoCollectionViewCell"
