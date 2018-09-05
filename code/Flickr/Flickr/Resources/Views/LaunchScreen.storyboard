@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +17,65 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jze-72-27x">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flickr-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tvg-Dp-xUV">
+                                        <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="IzN-7D-hfg"/>
+                                            <constraint firstAttribute="width" constant="200" id="OXl-eK-bGW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danis Matíaz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zob-ld-Q5Q">
+                                        <rect key="frame" x="20" y="438.5" width="335" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="mju-3G-tGo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flickr API Sample Projec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ak9-5g-kMN">
+                                        <rect key="frame" x="20" y="458.5" width="335" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="lQJ-01-ebE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ak9-5g-kMN" firstAttribute="top" secondItem="zob-ld-Q5Q" secondAttribute="bottom" id="58E-Zv-Gxi"/>
+                                    <constraint firstItem="tvg-Dp-xUV" firstAttribute="centerX" secondItem="Jze-72-27x" secondAttribute="centerX" id="AxK-Qf-dQd"/>
+                                    <constraint firstItem="zob-ld-Q5Q" firstAttribute="top" secondItem="tvg-Dp-xUV" secondAttribute="bottom" constant="5" id="Ba7-fG-s9U"/>
+                                    <constraint firstAttribute="trailing" secondItem="ak9-5g-kMN" secondAttribute="trailing" constant="20" id="K1O-Tx-rco"/>
+                                    <constraint firstItem="zob-ld-Q5Q" firstAttribute="leading" secondItem="Jze-72-27x" secondAttribute="leading" constant="20" id="KyE-Wy-gsP"/>
+                                    <constraint firstAttribute="trailing" secondItem="zob-ld-Q5Q" secondAttribute="trailing" constant="20" id="aJL-Mg-CpP"/>
+                                    <constraint firstItem="tvg-Dp-xUV" firstAttribute="centerY" secondItem="Jze-72-27x" secondAttribute="centerY" id="yJ1-46-edL"/>
+                                    <constraint firstItem="ak9-5g-kMN" firstAttribute="leading" secondItem="Jze-72-27x" secondAttribute="leading" constant="20" id="yul-5d-1BA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jze-72-27x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1sO-zt-DEp"/>
+                            <constraint firstItem="Jze-72-27x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7n3-V5-t3e"/>
+                            <constraint firstItem="Jze-72-27x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lyX-xc-H0S"/>
+                            <constraint firstItem="Jze-72-27x" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="w9f-06-LsM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Flickr-logo" width="512" height="512"/>
+    </resources>
 </document>

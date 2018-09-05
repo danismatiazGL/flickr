@@ -15,4 +15,16 @@ class FlickrPhotoCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+
+    func configureCell(photo: Photo) {
+        if let url = URL(string: photo.url) {
+            photoImageView.kf.setImage(with: url)
+            let image = UIImage(named: "Flickr-Placeholder")
+            photoImageView.kf.indicatorType = .activity
+            photoImageView.kf.setImage(with: url, placeholder: image)
+        } else {
+            let failedImage = UIImage.init(named: "Flickr-Placeholder")
+            photoImageView.image = failedImage
+        }
+    }
 }
