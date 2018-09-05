@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class Photo {
+    var photoId: String = ""
+    var serverId: String = ""
+    var farmId: String = ""
+    var secretId: String = ""
+    var url: String = ""
+    init(photoId: String,
+         serverId: String,
+         farmId: String,
+         secretId: String,
+         url: String) {
+        self.photoId = photoId
+        self.serverId = serverId
+        self.farmId = farmId
+        self.secretId = secretId
+        self.url = url
+    }
+}
