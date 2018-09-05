@@ -31,8 +31,6 @@ class FlickrSearchViewController: UIViewController {
         let viewSize = self.view.frame.size.width
         let itemSize = (viewSize - 2) / 3
         self.collectionViewCellSize = Int(itemSize)
-        self.photosCollectionView.register(UINib(nibName: flickerCollectionViewCell, bundle: nil),
-                                           forCellWithReuseIdentifier: flickerCollectionViewCell)
     }
 }
 
@@ -41,6 +39,7 @@ extension FlickrSearchViewController: UISearchBarDelegate {
         // To Do: Handle a time delay OR minumun characters count to trigger the
         // request to minimize the API calls OR wait for editing to end
         searchQuery = searchText
+        page = 0
         self.searchPhotos()
     }
 }
@@ -50,19 +49,27 @@ extension FlickrSearchViewController {
         isLoadingMore = true
         page += 1
         NetworkManager.searchPhotos(query: searchQuery,
-                                    page: page) { (status, photos, message) in
+                                    page: page) { (status, photos, _) in
                                         if status == .success {
                                             if let photoList = photos {
                                                 self.photosList.append(contentsOf: photoList)
                                             }
-                                        } else {
-                                            self.photosList.removeAll()
-                                        }
+                                        } else { self.photosList.removeAll() }
+                                        self.photosCollectionView.reloadData()
         }
     }
 }
 
-extension FlickrSearchViewController {
+extension FlickrSearchViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if searchbar.isFirstResponder {
+            searchbar.resignFirstResponder()
+        }
+    }
+}
+
+extension FlickrSearchViewController: UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // To do: Make it full screen

@@ -35,10 +35,11 @@ extension DataManager {
                 let newPhoto = self.photo(with: photo)
                 newPhotos.append(newPhoto)
             }
+            return newPhotos
         } catch {
-            print("To Do: Error handling here")
+            print("To do: Error Handling")
+            return []
         }
-        return newPhotos
     }
 
     static func photo(with data: JSON) -> Photo {

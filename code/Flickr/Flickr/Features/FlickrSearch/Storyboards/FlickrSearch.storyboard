@@ -105,6 +105,10 @@
                         <viewLayoutGuide key="safeArea" id="vF8-cz-bmf"/>
                     </view>
                     <navigationItem key="navigationItem" title="flickr" id="GeC-M1-9Bn"/>
+                    <connections>
+                        <outlet property="photosCollectionView" destination="HgW-Rc-8R1" id="eez-1p-qBz"/>
+                        <outlet property="searchbar" destination="cdL-pP-aeI" id="GHH-vk-WhU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyY-IH-N9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -21,38 +21,38 @@ enum ServiceStatus: Int {
 // MARK: - Request URL Builder
 extension NetworkManager {
     private static func baseRequest(service: FlickrService) -> String {
-        if service == .search {
-            return "\(NetworkConstant.flickrBaseURL)\(service.rawValue)"
-        } else {// we don't have other services yet
-            return ""
-        }
+        return "\(NetworkConstant.flickrBaseURL)\(service.rawValue)"
     }
 
     private static func searchRequest(query: String, page: Int) -> String {
-        let baseURL = self.baseRequest(service: .search)
+        let baseURL = self.baseRequest(service: query.count == 0 ? .recent : .search)
         var queryEncoded = ""
         if let encodedString = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             queryEncoded = encodedString
         }
         let baseParameters = "\(baseURL)\(self.flickerAPIKey())\(self.searchParameters())"
-        let searchParameters = "\(self.searchQuery(query: queryEncoded))\(self.searchPage(page: page))"
-        return "\(baseParameters)\(searchParameters)"
+        let searchParameters = queryEncoded.count == 0 ? "" : "\(self.searchQuery(query: queryEncoded))"
+        let pageParameters = "\(self.searchPage(page: page))"
+        return "\(baseParameters)\(pageParameters)\(searchParameters)"
     }
 
     private static func flickerAPIKey() -> String {
-        return "&\(FlickrServiceParameter.apiKey)\(NetworkConstant.flickrAPIKey)"
+        return "&\(FlickrServiceParameter.apiKey.rawValue)\(NetworkConstant.flickrAPIKey)"
     }
 
     private static func searchParameters() -> String {
-        return "&\(FlickrServiceParameter.apiKey)\(NetworkConstant.flickrAPIKey)"
+        let extras = FlickrServiceParameter.extras.rawValue
+        let callback = FlickrServiceParameter.callback.rawValue
+        let format = FlickrServiceParameter.format.rawValue
+        return "&\(extras)&\(callback)&\(format)"
     }
 
     private static func searchQuery(query: String) -> String {
-        return "&\(FlickrServiceParameter.text)\(query)"
+        return "&\(FlickrServiceParameter.text.rawValue)\(query)"
     }
 
     private static func searchPage(page: Int) -> String {
-        return "&\(FlickrServiceParameter.page)\(page)"
+        return "&\(FlickrServiceParameter.page.rawValue)\(page)"
     }
 }
 

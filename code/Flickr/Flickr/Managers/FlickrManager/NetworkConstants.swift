@@ -17,6 +17,7 @@ struct NetworkConstant {
 // MARK: - Flickr Services
 enum FlickrService: String {
     case search = "?method=flickr.photos.search"
+    case recent = "?method=flickr.photos.getRecent"
 }
 
 // MARK: - Flickr Service Parameters, for the purpose of the challenge these are hardcoded
@@ -25,7 +26,7 @@ enum FlickrServiceParameter: String {
     case text = "text="
     case extras = "extras=url_s"
     case format = "format=json"
-    case nojson = "nojsoncallback=1"
+    case callback = "nojsoncallback=1"
     case page = "page="
 }
 
@@ -37,9 +38,9 @@ enum FlickrAPIKey: String {
     case perpage = "perpage"
     case total = "total"
     case photo = "photo"
-    case photoId = "photoId"
-    case serverId = "serverId"
-    case farmId = "farmId"
-    case secretId = "secretId"
+    case photoId = "id"
+    case serverId = "server"
+    case farmId = "farm"
+    case secretId = "secret"
     case url = "url_s"
 }
